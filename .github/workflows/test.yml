@@ -1,5 +1,7 @@
 on:
   workflow_dispatch: {}
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   test:
@@ -7,7 +9,7 @@ jobs:
 
     steps:
       - run: date > timestamp.txt
-    
+
       - uses: actions/upload-artifact@v3
         with:
           name: artifact
