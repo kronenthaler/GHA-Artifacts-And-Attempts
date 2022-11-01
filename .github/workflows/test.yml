@@ -6,4 +6,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo 'Hello world!'
+      - run: date > timestamp.txt
+    
+      - uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          if-no-files-found: error
+          path: |
+            timestamp.txt
